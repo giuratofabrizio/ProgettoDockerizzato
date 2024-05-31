@@ -12,7 +12,7 @@ export class AnimalsService {
   
   //Il metodo fa una chiamata Http al server
   getAnimals() {
-    return this.http.get<VettAnimal>(environment.baseUrlServer + 'animals');
+    return this.http.get<VettAnimal>("https://5000-giuratofabr-progettodoc-5bi8sj3suln.ws-eu114.gitpod.io/" + 'animals');
   }
 
   httpOptions = {
@@ -20,10 +20,21 @@ export class AnimalsService {
   };
   sendNewAnimal(animal : Animal) : Observable<Animal>
   {
-    return this.http.post<Animal>(environment.baseUrlServer + 'newAnimal', animal,this.httpOptions)
+    return this.http.post<Animal>("https://5000-giuratofabr-progettodoc-5bi8sj3suln.ws-eu114.gitpod.io/" + 'newAnimal', animal,this.httpOptions)
   }
 }
 
+/*
+Definisco il tipo di dato che mi aspetto di ricevere dal server 
+"animals": [
+  {
+    "id": 1,
+    "name": "Lion",
+    "type": "wild"
+  },
+  ....
+  }
+]*/
 
 export interface VettAnimal {
   [animals: string]: Animal[]

@@ -1,10 +1,6 @@
+<h1>hello world!</h1>
 
-<ul>
-    <li *ngFor = "let animal of data">
-        {{animal.id}} - {{animal.name}} - {{animal.type}}
-    </li>
-</ul>
-
+<!--Crea una reactive form-->
 <section>
     <h1>Reactive Form Example:</h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -21,3 +17,9 @@
         </p>
     </form>
 </section>
+
+<ul>
+    <li *ngFor = "let animal of data">
+        {{animal.id}} - {{animal.name}} - {{animal.type}}
+    </li>
+</ul>
