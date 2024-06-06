@@ -21,19 +21,18 @@ services:
       - 4200:4200
 
       
-  server:
-    build:
-      dockerfile: Dockerfile
-      context: ./server
-    environment:
-    - MONGO_INITDB_DATABASE=animal_db
-    - MONGO_INITDB_ROOT_USERNAME=root
-    - MONGO_INITDB_ROOT_PASSWORD=pass
-
-    volumes:
-      - ./server:/app
-    ports:
-      - 5000:5000
+  api-server:
+      build:
+        dockerfile: Dockerfile
+        context: ./server
+      environment: *mongo-variables
+      
+      volumes:
+        - ./server:/app
+      ports:
+        - 5000:5000
+      networks:
+      - shared-network
 
 
   mongo-server:
